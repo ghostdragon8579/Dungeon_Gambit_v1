@@ -8,6 +8,9 @@ int appWidth, appHeight;
 int size;
 int ShorterSide;
 //
+int cols = 40, rows = 25;
+int[][] dungeonMap = new int[cols][rows];
+
 void setup() {
   //
   size(1200, 800);
@@ -23,8 +26,11 @@ void setup() {
   //Fonts
   TitleFont = createFont("Times New Roman Bold", 55);
   //
+  generateDungeon();
 } //end setup
 void draw() {
+  background(50);
+  drawDungeon();
   //
   TextSetup1();
   TextSetup2();
@@ -52,5 +58,47 @@ void mousePressed() {
 }
 void mouseReleased() {
   //
+}
+void generateDungeon() {
+  // Fill with walls
+  for (int i = 0; i < cols; i++) {
+    for (int j = 0; j < rows; j++) {
+      dungeonMap[i][j] = 0; // 0 = wall
+    }
+  }
+  // Random rooms
+  for (int r = 0; r < 8; r++) {
+    int w = int(random(4, 10));
+    int h = int(random(4, 8));
+    int x = int(random(1, cols-w-1));
+    int y = int(random(1, rows-h-1));
+    for (int i = x; i < x+w; i++) {
+      for (int j = y; j < y+h; j++) {
+        dungeonMap[i][j] = 1; // 1 = floor
+      }
+    }
+  }
+  // Simple corridors (horizontal)
+  for (int c = 0; c < 5; c++) {
+    int y = int(random(1, rows-1));
+    for (int x = 1; x < cols-1; x++) {
+      dungeonMap[x][y] = 1;
+    }
+  }
+}
+
+void drawDungeon() {
+  int cellW = width / cols;
+  int cellH = height / rows;
+  for (int i = 0; i < cols; i++) {
+    for (int j = 0; j < rows; j++) {
+      if (dungeonMap[i][j] == 1) {
+        fill(200);
+      } else {
+        fill(30);
+      }
+      rect(i*cellW, j*cellH, cellW, cellH);
+    }
+  }
 }
 //end program
