@@ -67,20 +67,20 @@ void generateDungeon() {
   }
   // Random rooms
   for (int r = 0; r < 8; r++) {
-    int w = int(random(2, 7));
-    int h = int(random(2, 8));
-    int x = int(random(1, columns-w-1));
-    int y = int(random(1, rows-h-1));
-    for (int i = x; i < x+w; i++) {
-      for (int j = y; j < y+h; j++) {
+    int Width = int(random(2, 7));
+    int Height = int(random(2, 8));
+    int x = int(random(1, columns-Width-1));
+    int y = int(random(1, rows-Height-1));
+    for (int i = x; i < x+Width; i++) {
+      for (int j = y; j < y+Height; j++) {
         DungeonMap[i][j] = 1; // 1 = floor
       }
     }
   }
 }
 void drawDungeon() {
-  int cellW = width/columns;
-  int cellH = height/rows;
+  int cellWidth = width/columns;
+  int cellHeight = height/rows;
   for (int i = 0; i < columns; i++) {
     for (int j = 0; j < rows; j++) {
       if (DungeonMap[i][j] == 1) {
@@ -88,7 +88,7 @@ void drawDungeon() {
       } else {
         fill(Black);
       }
-      rect(i*cellW, j*cellH, cellW, cellH);
+      rect(i*cellWidth, j*cellHeight, cellWidth, cellHeight);
     }
   }
 }
