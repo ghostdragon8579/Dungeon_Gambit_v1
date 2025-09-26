@@ -66,9 +66,9 @@ void generateDungeon() {
     }
   }
   // Random rooms
-  for (int r = 0; r < 8; r++) {
-    int Width = int(random(2, 7));
-    int Height = int(random(2, 8));
+  for (int r = 0; r < 1; r++) {
+    int Width = int(random(8, 27));
+    int Height = int(random(6, 15));
     int x = int(random(1, columns-Width-1));
     int y = int(random(1, rows-Height-1));
     for (int i = x; i < x+Width; i++) {
