@@ -77,6 +77,7 @@ void generateDungeon() {
         DungeonMap[i][j] = 1; // 1 = floor
       }
     }
+  }
   // Find all white tiles (floor)
   ArrayList<PVector> floorTiles = new ArrayList<PVector>();
   for (int i = 0; i < columns; i++) {
@@ -92,7 +93,6 @@ void generateDungeon() {
     int fx = int(floorTiles.get(idx).x);
     int fy = int(floorTiles.get(idx).y);
     DungeonMap[fx][fy] = 2; // 2 = Teleport pad
-    }
   }
 }
 void drawDungeon() {
