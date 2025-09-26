@@ -4,6 +4,7 @@ float xSampleTextv2, ySampleTextv2;
 PFont TitleFont;
 color ResetDefaultInk=#FFFFFF;
 color Black=#000000;
+color Teleport=#0AC8FF;
 int appWidth, appHeight;
 int size;
 int ShorterSide;
@@ -66,9 +67,9 @@ void generateDungeon() {
     }
   }
   // Random rooms
-  for (int r = 0; r < 1; r++) {
-    int Width = int(random(8, 27));
-    int Height = int(random(6, 15));
+  for (int r = 0; r < 8; r++) {
+    int Width = int(random(8, 21));
+    int Height = int(random(6, 11));
     int x = int(random(1, columns-Width-1));
     int y = int(random(1, rows-Height-1));
     for (int i = x; i < x+Width; i++) {
@@ -76,6 +77,11 @@ void generateDungeon() {
         DungeonMap[i][j] = 1; // 1 = floor
       }
     }
+   for (int i = 0; i < 1; i++) {
+     for (int j = 0; j < 1; j++) {
+   DungeonMap[i][j] = 2; // 2 = Next floor pad
+     }
+   }
   }
 }
 void drawDungeon() {
@@ -83,10 +89,12 @@ void drawDungeon() {
   int cellHeight = height/rows;
   for (int i = 0; i < columns; i++) {
     for (int j = 0; j < rows; j++) {
-      if (DungeonMap[i][j] == 1) {
-        fill(ResetDefaultInk);
-      } else {
+      if (DungeonMap[i][j] == 0) {
         fill(Black);
+      } else if (DungeonMap[i][j] == 1) {
+        fill(ResetDefaultInk);
+      } else if (DungeonMap[i][j] == 2) {
+        fill(Teleport);
       }
       rect(i*cellWidth, j*cellHeight, cellWidth, cellHeight);
     }
