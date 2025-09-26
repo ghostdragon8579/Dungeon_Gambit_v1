@@ -67,9 +67,9 @@ void generateDungeon() {
     }
   }
   // Random rooms
-  for (int r = 0; r < 8; r++) {
-    int Width = int(random(8, 21));
-    int Height = int(random(6, 11));
+  for (int r = 0; r < 10; r++) {
+    int Width = int(random(8, 18));
+    int Height = int(random(6, 9));
     int x = int(random(1, columns-Width-1));
     int y = int(random(1, rows-Height-1));
     for (int i = x; i < x+Width; i++) {
@@ -79,7 +79,7 @@ void generateDungeon() {
     }
    for (int i = 0; i < 1; i++) {
      for (int j = 0; j < 1; j++) {
-   DungeonMap[i][j] = 2; // 2 = Next floor pad
+   DungeonMap[12][17] = 2; // 2 = Next floor pad
      }
    }
   }
