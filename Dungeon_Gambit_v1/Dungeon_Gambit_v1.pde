@@ -77,11 +77,22 @@ void generateDungeon() {
         DungeonMap[i][j] = 1; // 1 = floor
       }
     }
-   for (int i = 0; i < 1; i++) {
-     for (int j = 0; j < 1; j++) {
-   DungeonMap[12][17] = 2; // 2 = Next floor pad
-     }
-   }
+  // Find all white tiles (floor)
+  ArrayList<PVector> floorTiles = new ArrayList<PVector>();
+  for (int i = 0; i < columns; i++) {
+    for (int j = 0; j < rows; j++) {
+      if (DungeonMap[i][j] == 1) {
+        floorTiles.add(new PVector(i, j));
+      }
+    }
+  }
+  // Randomly select one floor tile for the teleport pad
+  if (floorTiles.size() > 0) {
+    int idx = int(random(floorTiles.size()));
+    int fx = int(floorTiles.get(idx).x);
+    int fy = int(floorTiles.get(idx).y);
+    DungeonMap[fx][fy] = 2; // 2 = Teleport pad
+    }
   }
 }
 void drawDungeon() {
