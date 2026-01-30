@@ -32,11 +32,12 @@ void draw() {
   background(50);
   drawDungeon();
   //
+  /*
   TextSetup1();
   TextSetup2();
   //
-  //rect(xSampleTextv1, ySampleTextv1, TextDIVWidth[0], TextDIVHeight[0]);
-  //rect(xSampleTextv2, ySampleTextv2, TextDIVWidth[1], TextDIVHeight[1]);
+  rect(xSampleTextv1, ySampleTextv1, TextDIVWidth[0], TextDIVHeight[0]);
+  rect(xSampleTextv2, ySampleTextv2, TextDIVWidth[1], TextDIVHeight[1]);
   //
   textAlign(CENTER, CENTER);
   fill(Black);
@@ -45,6 +46,7 @@ void draw() {
   textFont(TitleFont, FontSizes[1]);
   text(SampleText[1], xSampleTextv2, ySampleTextv2, TextDIVWidth[1], TextDIVHeight[1]);
   fill(ResetDefaultInk);
+  */
   //
 } //end draw
 void keyPressed() {
@@ -66,7 +68,7 @@ void generateDungeon() {
       DungeonMap[i][j] = 0; //0 = wall
     }
   }
-  // Random rooms
+  //Room Size Randomizer
   for (int r = 0; r < 10; r++) {
     int Width = int(random(6, 13));
     int Height = int(random(6, 13));
