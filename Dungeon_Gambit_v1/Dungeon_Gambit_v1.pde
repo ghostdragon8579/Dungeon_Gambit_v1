@@ -63,18 +63,18 @@ void generateDungeon() {
   // Fill with walls
   for (int i = 0; i < columns; i++) {
     for (int j = 0; j < rows; j++) {
-      DungeonMap[i][j] = 0; // 0 = wall
+      DungeonMap[i][j] = 0; //0 = wall
     }
   }
   // Random rooms
   for (int r = 0; r < 10; r++) {
-    int Width = int(random(8, 18));
-    int Height = int(random(6, 9));
+    int Width = int(random(6, 15));
+    int Height = int(random(6, 15));
     int x = int(random(1, columns-Width-1));
     int y = int(random(1, rows-Height-1));
     for (int i = x; i < x+Width; i++) {
       for (int j = y; j < y+Height; j++) {
-        DungeonMap[i][j] = 1; // 1 = normal floor
+        DungeonMap[i][j] = 1; //1 = normal floor
       }
     }
   }
