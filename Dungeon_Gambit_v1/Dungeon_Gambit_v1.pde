@@ -68,8 +68,8 @@ void generateDungeon() {
   }
   // Random rooms
   for (int r = 0; r < 10; r++) {
-    int Width = int(random(6, 15));
-    int Height = int(random(6, 15));
+    int Width = int(random(6, 13));
+    int Height = int(random(6, 13));
     int x = int(random(1, columns-Width-1));
     int y = int(random(1, rows-Height-1));
     for (int i = x; i < x+Width; i++) {
@@ -80,8 +80,10 @@ void generateDungeon() {
   }
 }
 void drawDungeon() {
+  //Grid Tile Size
   int cellWidth = width/columns;
   int cellHeight = height/rows;
+  //Grid floor
   for (int i = 0; i < columns; i++) {
     for (int j = 0; j < rows; j++) {
       if (DungeonMap[i][j] == 0) {
