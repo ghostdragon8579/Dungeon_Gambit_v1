@@ -39,3 +39,6 @@ void TextSetup2() {
     textFont(TitleFont, TemporaryFontSize);
   }
 }
+  void Music_Program_CS20_HoverOver () {
+  color hoverOverColor=color(255, 255, 255, 64);
+}
