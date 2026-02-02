@@ -8,7 +8,7 @@ color Teleport=#0AC8FF;
 int appWidth, appHeight;
 int size;
 int ShorterSide;
-int columns = 40, rows = 25;
+int columns = 50, rows = 31; //Formally 40 columns and 25 rows
 int[][] DungeonMap = new int[columns][rows];
 //
 void setup() {
@@ -69,9 +69,9 @@ void generateDungeon() {
     }
   }
   //Room Size Randomizer
-  for (int r = 0; r < 10; r++) {
-    int Width = int(random(6, 13));
-    int Height = int(random(6, 13));
+  for (int r = 0; r < 12; r++) {
+    int Width = int(random(6, 18));
+    int Height = int(random(6, 18));
     int x = int(random(1, columns-Width-1));
     int y = int(random(1, rows-Height-1));
     for (int i = x; i < x+Width; i++) {
