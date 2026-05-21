@@ -1,5 +1,5 @@
 //Classes
-//DungeonDivs dungeonDivs;
+DungeonMap dungeonMap;
 //
 float xSampleTextv1, ySampleTextv1;
 float xSampleTextv2, ySampleTextv2;
@@ -10,8 +10,6 @@ color Teleport=#0AC8FF;
 int appWidth, appHeight;
 int size;
 int ShorterSide;
-int columns = 50, rows = 31; //Formally 40 columns and 25 rows
-int[][] DungeonMap = new int[columns][rows];
 //
 void setup() {
   //
@@ -28,11 +26,13 @@ void setup() {
   //Fonts
   TitleFont = createFont("Times New Roman Bold", 55);
   //
-  generateDungeon();
+  dungeonMap = new DungeonMap();
+  dungeonMap.setup();
+  //
 } //end setup
 void draw() {
   background(50);
-  drawDungeon();
+  dungeonMap.draw();
   //
   /*
   TextSetup1();
@@ -62,41 +62,5 @@ void mousePressed() {
 }
 void mouseReleased() {
   //
-}
-void generateDungeon() {
-  // Fill with walls
-  for (int i = 0; i < columns; i++) {
-    for (int j = 0; j < rows; j++) {
-      DungeonMap[i][j] = 0; //0 = wall
-    }
-  }
-  //Room Size Randomizer
-  for (int r = 0; r < 12; r++) {
-    int Width = int(random(6, 18));
-    int Height = int(random(6, 18));
-    int x = int(random(1, columns-Width-1));
-    int y = int(random(1, rows-Height-1));
-    for (int i = x; i < x+Width; i++) {
-      for (int j = y; j < y+Height; j++) {
-        DungeonMap[i][j] = 1; //1 = normal floor
-      }
-    }
-  }
-}
-void drawDungeon() {
-  //Grid Tile Size
-  int cellWidth = width/columns;
-  int cellHeight = height/rows;
-  //Grid floor
-  for (int i = 0; i < columns; i++) {
-    for (int j = 0; j < rows; j++) {
-      if (DungeonMap[i][j] == 0) {
-        fill(Black);
-      } else if (DungeonMap[i][j] == 1) {
-        fill(ResetDefaultInk);
-      }
-      rect(i*cellWidth, j*cellHeight, cellWidth, cellHeight);
-    }
-  }
 }
 //end program

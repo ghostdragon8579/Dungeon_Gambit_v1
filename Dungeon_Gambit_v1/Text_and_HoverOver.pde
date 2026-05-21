@@ -1,4 +1,3 @@
-//class DungeonDivs {
 float TitleFontSize;
 float[] TextDIVWidth = new float[2];
 float[] TextDIVHeight = new float[2];
