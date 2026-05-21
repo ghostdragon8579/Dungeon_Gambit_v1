@@ -1,5 +1,6 @@
 //Classes
 DungeonMap dungeonMap;
+PlayerInventory playerInventory;
 //
 float xSampleTextv1, ySampleTextv1;
 float xSampleTextv2, ySampleTextv2;
@@ -10,6 +11,7 @@ color Teleport=#0AC8FF;
 int appWidth, appHeight;
 int size;
 int ShorterSide;
+boolean InInventory = false;
 //
 void setup() {
   //
@@ -29,12 +31,19 @@ void setup() {
   TitleFont = createFont("Times New Roman Bold", 55);
   //
   dungeonMap = new DungeonMap();
+  playerInventory = new PlayerInventory();
+  if (!InInventory) {
   dungeonMap.setup();
+  } else if (InInventory) {
+  }
   //
 } //end setup
 void draw() {
   background(50);
+  if (!InInventory) {
   dungeonMap.draw();
+  } else if (InInventory) {
+  }
   //
   /*
   TextSetup1();
