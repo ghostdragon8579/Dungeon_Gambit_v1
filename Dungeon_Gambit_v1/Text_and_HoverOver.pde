@@ -1,3 +1,4 @@
+//class DungeonDivs {
 float TitleFontSize;
 float[] TextDIVWidth = new float[2];
 float[] TextDIVHeight = new float[2];
@@ -42,3 +43,4 @@ void TextSetup2() {
   void Music_Program_CS20_HoverOver () {
   color hoverOverColor=color(255, 255, 255, 64);
 }
+//}
