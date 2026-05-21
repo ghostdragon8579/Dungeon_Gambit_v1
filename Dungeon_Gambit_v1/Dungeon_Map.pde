@@ -27,12 +27,14 @@ void draw() {
   int cellWidth = width/columns;
   int cellHeight = height/rows;
   //Grid floor
-  for (int i = 0; i < columns; i++) {
+  for (int i = 8; i < columns; i++) {
     for (int j = 0; j < rows; j++) {
       if (DungeonMap[i][j] == 0) {
         fill(Black);
       } else if (DungeonMap[i][j] == 1) {
         fill(ResetDefaultInk);
+      } else if (DungeonMap[i][j] == 2) {
+        fill(Teleport);
       }
       rect(i*cellWidth, j*cellHeight, cellWidth, cellHeight);
     }

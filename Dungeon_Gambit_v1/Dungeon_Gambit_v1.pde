@@ -18,10 +18,12 @@ void setup() {
   appHeight = height;
   ShorterSide = (appWidth >= appHeight) ? appHeight : appWidth;
   //
+  /*
   xSampleTextv1 = appWidth*2/5; ySampleTextv1 = appHeight*3/8;
   xSampleTextv2 = appWidth*4/9; ySampleTextv2 = appHeight*5/9;
   TextDIVWidth[0] = appWidth*1/5; TextDIVHeight[0] = appHeight*1/8;
   TextDIVWidth[1] = appWidth*1/9; TextDIVHeight[1] = appHeight*1/16;
+  */
   //
   //Fonts
   TitleFont = createFont("Times New Roman Bold", 55);
