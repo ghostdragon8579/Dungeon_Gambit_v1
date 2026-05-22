@@ -11,6 +11,7 @@ color Teleport=#0AC8FF;
 int appWidth, appHeight;
 int size;
 int ShorterSide;
+boolean InMainMenu = false;
 boolean InInventory = false;
 boolean MouseIsOver(float xVariable, float yVariable, float widthVariable, float heightVariable) {
   return mouseX > xVariable && mouseX < xVariable+widthVariable && mouseY > yVariable && mouseY < yVariable+heightVariable;
@@ -35,19 +36,24 @@ void setup() {
   //
   dungeonMap = new DungeonMap();
   playerInventory = new PlayerInventory();
-  if (!InInventory) {
-    dungeonMap.setup();
-  } else if (InInventory) {
-    playerInventory.setup();
+  if (!InMainMenu) {
+    if (!InInventory) {
+      dungeonMap.setup();
+    } else if (InInventory) {
+      playerInventory.setup();
+    }
   }
   //
 } //end setup
 void draw() {
   background(50);
-  if (!InInventory) {
-    dungeonMap.draw();
-  } else if (InInventory) {
-    playerInventory.draw();
+  //
+  if (!InMainMenu) {
+    if (!InInventory) {
+      dungeonMap.draw();
+    } else if (InInventory) {
+      playerInventory.draw();
+    }
   }
   //
   /*
