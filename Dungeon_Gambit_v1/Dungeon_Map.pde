@@ -1,5 +1,5 @@
 class DungeonMap {
-  int columns = 50, rows = 30; //Formerlly 40 columns and 25 rows
+  int columns = 50, rows = 31; //Formerlly 40 columns and 25 rows
   int[][] DungeonMap = new int[columns][rows];
   //
 void setup() {
@@ -27,7 +27,7 @@ void draw() {
   int cellWidth = width/columns;
   int cellHeight = height/rows;
   //Grid floor
-  for (int i = 8; i < columns; i++) {
+  for (int i = 12; i < columns; i++) {
     for (int j = 0; j < rows; j++) {
       if (DungeonMap[i][j] == 0) {
         fill(Black);
