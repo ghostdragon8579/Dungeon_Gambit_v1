@@ -12,6 +12,9 @@ int appWidth, appHeight;
 int size;
 int ShorterSide;
 boolean InInventory = false;
+boolean MouseIsOver(float xVariable, float yVariable, float widthVariable, float heightVariable) {
+  return mouseX > xVariable && mouseX < xVariable+widthVariable && mouseY > yVariable && mouseY < yVariable+heightVariable;
+}
 //
 void setup() {
   //
@@ -33,16 +36,18 @@ void setup() {
   dungeonMap = new DungeonMap();
   playerInventory = new PlayerInventory();
   if (!InInventory) {
-  dungeonMap.setup();
+    dungeonMap.setup();
   } else if (InInventory) {
+    playerInventory.setup();
   }
   //
 } //end setup
 void draw() {
   background(50);
   if (!InInventory) {
-  dungeonMap.draw();
+    dungeonMap.draw();
   } else if (InInventory) {
+    playerInventory.draw();
   }
   //
   /*
