@@ -21,7 +21,7 @@ void setup() {
   size(1200, 800);
   appWidth = width;
   appHeight = height;
-  ShorterSide = (appWidth >= appHeight) ? appHeight : appWidth;
+  ShorterSide = (appWidth >= appHeight)?appHeight:appWidth;
   //
   /*
   xSampleTextv1 = appWidth*2/5; ySampleTextv1 = appHeight*3/8;
