@@ -1,5 +1,5 @@
 # Dungeon_Gambit_v1
-A dungeon crawler game that I am currently making
+A dungeon crawler that I am currently making. It is based off of an old game called Angband and I am trying to recreate it's magic with this game.
 
 # Program Upgrades:
 - [x] Create repository folders
