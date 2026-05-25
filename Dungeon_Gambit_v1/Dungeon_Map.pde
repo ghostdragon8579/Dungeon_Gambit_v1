@@ -68,6 +68,14 @@ void setup() {
   }
 }
 void draw() {
+  //
+  stroke(Black);
+  fill(Black);
+  for (int i = 0; i < NumberOfActionLogDIVs; i++) {
+    int baseIndex = i*4;
+    rect(ActionLogDivs[baseIndex], ActionLogDivs[baseIndex+1], ActionLogDivs[baseIndex+2], ActionLogDivs[baseIndex+3]);
+  }
+  //
   //Grid Tile Size
   int cellWidth = width/columns;
   int cellHeight = height/rows;
