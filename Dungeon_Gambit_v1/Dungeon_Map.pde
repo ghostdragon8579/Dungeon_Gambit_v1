@@ -79,12 +79,12 @@ void setup() {
     DungeonMap[i][j] = 1; //1 = normal floor
     }
   }
-  // Store the center of this room
+  //Store the center of this room
   int centerX = x+RoomWidth/2;
   int centerY = y+RoomHeight/2;
   roomCenters.add(new PVector(centerX, centerY));
-}
-// 2. Connect each room to the next with corridors
+  }
+//2. Connect each room to the next with corridors
   for (int i = 0; i < roomCenters.size()-1; i++) {
     PVector a = roomCenters.get(i);
     PVector b = roomCenters.get(i+1);
