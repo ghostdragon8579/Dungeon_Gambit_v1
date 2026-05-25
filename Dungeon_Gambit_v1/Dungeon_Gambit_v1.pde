@@ -7,6 +7,7 @@ float xSampleTextv2, ySampleTextv2;
 PFont TitleFont;
 color ResetDefaultInk=#FFFFFF;
 color Black=#000000;
+color Gray=#868686;
 color Teleport=#0AC8FF;
 int appWidth, appHeight;
 int size;
@@ -24,6 +25,16 @@ void setup() {
   appHeight = height;
   ShorterSide = (appWidth >= appHeight)?appHeight:appWidth;
   //
+  dungeonMap = new DungeonMap();
+  dungeonMap.DungeonMapDivs();
+  playerInventory = new PlayerInventory();
+  if (!InMainMenu) {
+    if (!InInventory) {
+      dungeonMap.setup();
+    } else if (InInventory) {
+      playerInventory.setup();
+    }
+  }
   /*
   xSampleTextv1 = appWidth*2/5; ySampleTextv1 = appHeight*3/8;
   xSampleTextv2 = appWidth*4/9; ySampleTextv2 = appHeight*5/9;
@@ -34,15 +45,6 @@ void setup() {
   //Fonts
   TitleFont = createFont("Times New Roman Bold", 55);
   //
-  dungeonMap = new DungeonMap();
-  playerInventory = new PlayerInventory();
-  if (!InMainMenu) {
-    if (!InInventory) {
-      dungeonMap.setup();
-    } else if (InInventory) {
-      playerInventory.setup();
-    }
-  }
   //
 } //end setup
 void draw() {

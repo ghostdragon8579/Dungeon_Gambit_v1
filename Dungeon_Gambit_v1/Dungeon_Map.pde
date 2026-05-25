@@ -48,6 +48,7 @@ void CalculateDIVs() {
   }
 }
 void setup() {
+  //
   // Fill with walls
   for (int i = 0; i < columns; i++) {
     for (int j = 0; j < rows; j++) {
@@ -69,14 +70,15 @@ void setup() {
 }
 void draw() {
   //
-  stroke(Black);
-  fill(Black);
+  stroke(Gray);
+  fill(Gray);
   for (int i = 0; i < NumberOfActionLogDIVs; i++) {
     int baseIndex = i*4;
     rect(ActionLogDivs[baseIndex], ActionLogDivs[baseIndex+1], ActionLogDivs[baseIndex+2], ActionLogDivs[baseIndex+3]);
   }
   //
   //Grid Tile Size
+  stroke(Black);
   int cellWidth = width/columns;
   int cellHeight = height/rows;
   //Grid floor
