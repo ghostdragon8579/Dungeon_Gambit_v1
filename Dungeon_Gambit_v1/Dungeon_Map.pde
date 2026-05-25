@@ -1,5 +1,5 @@
 class DungeonMap {
-  int columns = 50, rows = 31; //Formerlly 40 columns and 25 rows
+  int columns = 50, rows = 30; //Formerlly 40 columns and 25 rows
   int[][] DungeonMap = new int[columns][rows];
   //
   int NumberOfActionLogDIVs = 26; //All Music Panel Components
