@@ -55,20 +55,7 @@ void setup() {
       DungeonMap[i][j] = 0; //0 = wall
     }
   }
-  /*
-  //Room Size Randomizer
-  for (int r = 0; r < 12; r++) {
-    int RoomWidth = int(random(4, 10));
-    int RoomHeight = int(random(4, 10));
-    int x = int(random(1, columns-RoomWidth-1));
-    int y = int(random(1, rows-RoomHeight-1));
-    for (int i = x; i < x+RoomWidth; i++) {
-      for (int j = y; j < y+RoomHeight; j++) {
-        DungeonMap[i][j] = 1; //1 = normal floor
-      }
-    }
-  }
-  */
+  //Generate rooms and create hallways to connect them.
   ArrayList<PVector> roomCenters = new ArrayList<PVector>();
   for (int r = 0; r < 12; r++) {
     int RoomWidth = int(random(4, 10));
