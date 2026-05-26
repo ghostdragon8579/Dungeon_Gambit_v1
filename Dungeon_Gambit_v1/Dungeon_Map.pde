@@ -55,6 +55,7 @@ void setup() {
       DungeonMap[i][j] = 0; //0 = wall
     }
   }
+  /*
   //Room Size Randomizer
   for (int r = 0; r < 12; r++) {
     int RoomWidth = int(random(4, 10));
@@ -67,7 +68,7 @@ void setup() {
       }
     }
   }
-  /*
+  */
   ArrayList<PVector> roomCenters = new ArrayList<PVector>();
   for (int r = 0; r < 12; r++) {
     int RoomWidth = int(random(4, 10));
@@ -76,23 +77,19 @@ void setup() {
     int y = int(random(1, rows-RoomHeight-1));
   for (int i = x; i < x+RoomWidth; i++) {
   for (int j = y; j < y+RoomHeight; j++) {
-    DungeonMap[i][j] = 1; //1 = normal floor
+    DungeonMap[i][j] = 1; //1 = floor
     }
   }
-  //Store the center of this room
-  int centerX = x+RoomWidth/2;
-  int centerY = y+RoomHeight/2;
-  roomCenters.add(new PVector(centerX, centerY));
+  int RoomCenterX = x+RoomWidth/2;
+  int RoomCenterY = y+RoomHeight/2;
+  roomCenters.add(new PVector(RoomCenterX, RoomCenterY));
   }
-//2. Connect each room to the next with corridors
   for (int i = 0; i < roomCenters.size()-1; i++) {
     PVector a = roomCenters.get(i);
     PVector b = roomCenters.get(i+1);
-    // Horizontal corridor
   for (int x = min((int)a.x, (int)b.x); x <= max((int)a.x, (int)b.x); x++) {
     DungeonMap[x][(int)a.y] = 1;
   }
-  // Vertical corridor
   for (int y = min((int)a.y, (int)b.y); y <= max((int)a.y, (int)b.y); y++) {
     DungeonMap[(int)b.x][y] = 1;
   }
