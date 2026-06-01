@@ -57,10 +57,10 @@ void setup() {
   }
   //Generate rooms and create hallways to connect them.
   ArrayList<PVector> roomCenters = new ArrayList<PVector>();
-  for (int r = 0; r < 12; r++) {
-    int RoomWidth = int(random(4, 10));
-    int RoomHeight = int(random(4, 10));
-    int x = int(random(1, columns-RoomWidth-1));
+  for (int r = 0; r < 14; r++) {
+    int RoomWidth = int(random(3, 8));
+    int RoomHeight = int(random(3, 8));
+    int x = int(random(12, columns-RoomWidth-1));
     int y = int(random(1, rows-RoomHeight-1));
   for (int i = x; i < x+RoomWidth; i++) {
   for (int j = y; j < y+RoomHeight; j++) {
@@ -94,7 +94,9 @@ void draw() {
   //
   //Grid Tile Size
   stroke(Black);
-  int cellWidth = width/columns;
+  float panelWidth = width*6.0/25;
+  float mapWidth = width-panelWidth;
+  float cellWidth = mapWidth/(columns-12);
   int cellHeight = height/rows;
   //Grid floor
   for (int i = 12; i < columns; i++) {
