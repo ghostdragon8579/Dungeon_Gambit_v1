@@ -5,7 +5,7 @@ class DungeonMap {
   int NumberOfActionLogDIVs = 27; //All Action Log Components
   float[][] ActionLogDivRatios = new float[NumberOfActionLogDIVs][4]; //Store ratios (Rectangles)
   float[] ActionLogDivs = new float[NumberOfActionLogDIVs*4]; //Action Log Position and Size of Components
-  int NumberOfPlayerStatDIVs = 8; //All Player Stat Components
+  int NumberOfPlayerStatDIVs = 9; //All Player Stat Components
   float[][] PlayerStatDivRatios = new float[NumberOfPlayerStatDIVs][4]; //Store ratios (Rectangles)
   float[] PlayerStatDivs = new float[NumberOfPlayerStatDIVs*4]; //Player Stat Position and Size of Components
   //
@@ -45,9 +45,10 @@ void DungeonMapDivs() {
   PlayerStatDivRatios[3] = new float[]{13.0/25, 0.0, 3.0/26, 1.0/26}; //Player Stat: Armor Class (Label)
   PlayerStatDivRatios[4] = new float[]{27.0/50, 1.0/26, 1.0/13, 1.0/13}; //Player Stat: Armor Class
   /*
-  PlayerStatDivRatios[5] = new float[]{6.0/25, 0.0/26, 19.0/25, 1.0/13}; //Player Stat: Equipped Weapon
-  PlayerStatDivRatios[6] = new float[]{6.0/25, 0.0/26, 19.0/25, 1.0/13}; //Player Stat: Bonus to Hit Chance (Label)
-  PlayerStatDivRatios[7] = new float[]{6.0/25, 0.0/26, 19.0/25, 1.0/13}; //Player Stat: Bonus to Hit Chance
+  PlayerStatDivRatios[5] = new float[]{6.0/25, 0.0/26, 19.0/25, 1.0/13}; //Player Stat: Equipped Weapon (Label)
+  PlayerStatDivRatios[6] = new float[]{6.0/25, 0.0/26, 19.0/25, 1.0/13}; //Player Stat: Equipped Weapon
+  PlayerStatDivRatios[7] = new float[]{6.0/25, 0.0/26, 19.0/25, 1.0/13}; //Player Stat: Bonus to Hit Chance (Label)
+  PlayerStatDivRatios[8] = new float[]{6.0/25, 0.0/26, 19.0/25, 1.0/13}; //Player Stat: Bonus to Hit Chance
   */
   //
   CalculateDIVs();
