@@ -2,7 +2,7 @@ class DungeonMap {
   int columns = 50, rows = 30; //Formerlly 40 columns and 25 rows
   int[][] DungeonMap = new int[columns][rows];
   //
-  int NumberOfActionLogDIVs = 26; //All Action Log Components
+  int NumberOfActionLogDIVs = 27; //All Action Log Components
   float[][] ActionLogDivRatios = new float[NumberOfActionLogDIVs][4]; //Store ratios (Rectangles)
   float[] ActionLogDivs = new float[NumberOfActionLogDIVs*4]; //Action Log Position and Size of Components
   int NumberOfPlayerStatDIVs = 5; //All Player Stat Components
@@ -37,8 +37,15 @@ void DungeonMapDivs() {
   ActionLogDivRatios[23] = new float[]{0.0, 23.0/26, 6.0/25, 1.0/26}; //Action Log Section 24
   ActionLogDivRatios[24] = new float[]{0.0, 12.0/13, 6.0/25, 1.0/26}; //Action Log Section 25
   ActionLogDivRatios[25] = new float[]{0.0, 23.0/26, 6.0/25, 1.0/26}; //Action Log Section 26
+  ActionLogDivRatios[26] = new float[]{0.0, 25.0/26, 6.0/25, 1.0/26}; //Action Log Section 27
   //
-  PlayerStatDivRatios[0] = new float[]{6.0/25, 0.0/26, 19.0/25, 1.0/13}; //Player Stat Backplate
+  PlayerStatDivRatios[0] = new float[]{6.0/25, 0.0/26, 19.0/25, 3.0/26}; //Player Stat Backplate
+  PlayerStatDivRatios[1] = new float[]{7.0/25, 1.0/26, 2.0/25, 1.0/26}; //Player Stat Backplate
+  /*
+  PlayerStatDivRatios[2] = new float[]{6.0/25, 0.0/26, 19.0/25, 1.0/13}; //Player Stat Backplate
+  PlayerStatDivRatios[3] = new float[]{6.0/25, 0.0/26, 19.0/25, 1.0/13}; //Player Stat Backplate
+  PlayerStatDivRatios[4] = new float[]{6.0/25, 0.0/26, 19.0/25, 1.0/13}; //Player Stat Backplate
+  */
   //
   CalculateDIVs();
   //
@@ -73,7 +80,7 @@ void setup() {
     int RoomWidth = int(random(3, 8));
     int RoomHeight = int(random(3, 8));
     int x = int(random(12, columns-RoomWidth-1));
-    int y = int(random(4, rows-RoomHeight-1));
+    int y = int(random(5, rows-RoomHeight-1));
   for (int i = x; i < x+RoomWidth; i++) {
   for (int j = y; j < y+RoomHeight; j++) {
     DungeonMap[i][j] = 1; //1 = floor
