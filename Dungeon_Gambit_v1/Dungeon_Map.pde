@@ -5,9 +5,9 @@ class DungeonMap {
   int NumberOfActionLogDIVs = 26; //All Action Log Components
   float[][] ActionLogDivRatios = new float[NumberOfActionLogDIVs][4]; //Store ratios (Rectangles)
   float[] ActionLogDivs = new float[NumberOfActionLogDIVs*4]; //Action Log Position and Size of Components
-  int NumberOfPlayerStatDivs = 5; //All Player Stat Components
-  float[][] PlayerStatDivRatios = new float[NumberOfPlayerStatDivs][4]; //Store ratios (Rectangles)
-  float[] PlayerStatDivs = new float[NumberOfPlayerStatDivs*4]; //Player Stat Position and Size of Components
+  int NumberOfPlayerStatDIVs = 5; //All Player Stat Components
+  float[][] PlayerStatDivRatios = new float[NumberOfPlayerStatDIVs][4]; //Store ratios (Rectangles)
+  float[] PlayerStatDivs = new float[NumberOfPlayerStatDIVs*4]; //Player Stat Position and Size of Components
   //
 void DungeonMapDivs() {
   //
@@ -38,6 +38,8 @@ void DungeonMapDivs() {
   ActionLogDivRatios[24] = new float[]{0.0, 12.0/13, 6.0/25, 1.0/26}; //Action Log Section 25
   ActionLogDivRatios[25] = new float[]{0.0, 23.0/26, 6.0/25, 1.0/26}; //Action Log Section 26
   //
+  PlayerStatDivRatios[0] = new float[]{6.0/25, 0.0/26, 19.0/25, 1.0/13}; //Player Stat Backplate
+  //
   CalculateDIVs();
   //
 }
@@ -49,7 +51,7 @@ void CalculateDIVs() {
     ActionLogDivs[baseIndex+2] = appWidth*ActionLogDivRatios[i][2]; //Width
     ActionLogDivs[baseIndex+3] = appHeight*ActionLogDivRatios[i][3]; //Height
   }
-  for (int i = 0; i < NumberOfPlayerStatDivs; i++) {
+  for (int i = 0; i < NumberOfPlayerStatDIVs; i++) {
     int baseIndex = i*4;
     PlayerStatDivs[baseIndex] = appWidth*PlayerStatDivRatios[i][0]; //X position
     PlayerStatDivs[baseIndex+1] = appHeight*PlayerStatDivRatios[i][1]; //Y position
@@ -71,7 +73,7 @@ void setup() {
     int RoomWidth = int(random(3, 8));
     int RoomHeight = int(random(3, 8));
     int x = int(random(12, columns-RoomWidth-1));
-    int y = int(random(1, rows-RoomHeight-1));
+    int y = int(random(4, rows-RoomHeight-1));
   for (int i = x; i < x+RoomWidth; i++) {
   for (int j = y; j < y+RoomHeight; j++) {
     DungeonMap[i][j] = 1; //1 = floor
@@ -95,19 +97,14 @@ void setup() {
 }
 void draw() {
   //
-  stroke(Gray);
-  fill(Gray);
-  for (int i = 0; i < NumberOfActionLogDIVs; i++) {
-    int baseIndex = i*4;
-    rect(ActionLogDivs[baseIndex], ActionLogDivs[baseIndex+1], ActionLogDivs[baseIndex+2], ActionLogDivs[baseIndex+3]);
-  }
-  //
   //Grid Tile Size
   stroke(Black);
   float panelWidth = width*6.0/25;
   float mapWidth = width-panelWidth;
   float cellWidth = mapWidth/(columns-12);
-  int cellHeight = height/rows;
+  float panelHeight = height*2.0/26;
+  float mapHeight = height-panelHeight;
+  float cellHeight = mapHeight/(rows);
   //Grid floor
   for (int i = 12; i < columns; i++) {
     for (int j = 0; j < rows; j++) {
@@ -121,5 +118,19 @@ void draw() {
       rect(i*cellWidth, j*cellHeight, cellWidth, cellHeight);
     }
   }
+  noStroke();
+  fill(Gray);
+  for (int i = 0; i < NumberOfActionLogDIVs; i++) {
+    int baseIndex = i*4;
+    rect(ActionLogDivs[baseIndex], ActionLogDivs[baseIndex+1], ActionLogDivs[baseIndex+2], ActionLogDivs[baseIndex+3]);
+  }
+  stroke(Black);
+  strokeWeight(3);
+  for (int i = 0; i < NumberOfPlayerStatDIVs; i++) {
+    int baseIndex = i*4;
+    rect(PlayerStatDivs[baseIndex], PlayerStatDivs[baseIndex+1], PlayerStatDivs[baseIndex+2], PlayerStatDivs[baseIndex+3]);
+  }
+  stroke(Black);
+  strokeWeight(1);
 }
 }
