@@ -2,9 +2,12 @@ class DungeonMap {
   int columns = 50, rows = 30; //Formerlly 40 columns and 25 rows
   int[][] DungeonMap = new int[columns][rows];
   //
-  int NumberOfActionLogDIVs = 26; //All Music Panel Components
+  int NumberOfActionLogDIVs = 26; //All Action Log Components
   float[][] ActionLogDivRatios = new float[NumberOfActionLogDIVs][4]; //Store ratios (Rectangles)
-  float[] ActionLogDivs = new float [NumberOfActionLogDIVs*4]; //Music Panel Position and Size of components
+  float[] ActionLogDivs = new float[NumberOfActionLogDIVs*4]; //Action Log Position and Size of Components
+  int NumberOfPlayerStatDivs = 5; //All Player Stat Components
+  float[][] PlayerStatDivRatios = new float[NumberOfPlayerStatDivs][4]; //Store ratios (Rectangles)
+  float[] PlayerStatDivs = new float[NumberOfPlayerStatDivs*4]; //Player Stat Position and Size of Components
   //
 void DungeonMapDivs() {
   //
@@ -45,6 +48,13 @@ void CalculateDIVs() {
     ActionLogDivs[baseIndex+1] = appHeight*ActionLogDivRatios[i][1]; //Y position
     ActionLogDivs[baseIndex+2] = appWidth*ActionLogDivRatios[i][2]; //Width
     ActionLogDivs[baseIndex+3] = appHeight*ActionLogDivRatios[i][3]; //Height
+  }
+  for (int i = 0; i < NumberOfPlayerStatDivs; i++) {
+    int baseIndex = i*4;
+    PlayerStatDivs[baseIndex] = appWidth*PlayerStatDivRatios[i][0]; //X position
+    PlayerStatDivs[baseIndex+1] = appHeight*PlayerStatDivRatios[i][1]; //Y position
+    PlayerStatDivs[baseIndex+2] = appWidth*PlayerStatDivRatios[i][2]; //Width
+    PlayerStatDivs[baseIndex+3] = appHeight*PlayerStatDivRatios[i][3]; //Height
   }
 }
 void setup() {
