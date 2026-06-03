@@ -40,8 +40,8 @@ void DungeonMapDivs() {
   ActionLogDivRatios[26] = new float[]{0.0, 25.0/26, 6.0/25, 1.0/26}; //Action Log Section 27
   //
   PlayerStatDivRatios[0] = new float[]{6.0/25, 0.0/26, 19.0/25, 3.0/26}; //Player Stat Backplate
-  PlayerStatDivRatios[1] = new float[]{8.0/25, 1.0/52, 2.0/25, 1.0/26}; //Player Stat: Health (Label)
-  PlayerStatDivRatios[2] = new float[]{7.0/25, 3.0/52, 4.0/25, 1.0/26}; //Player Stat: Health Bar
+  PlayerStatDivRatios[1] = new float[]{7.0/25, 3.0/52, 4.0/25, 1.0/26}; //Player Stat: Health Bar
+  PlayerStatDivRatios[2] = new float[]{8.0/25, 1.0/52, 2.0/25, 1.0/26}; //Player Stat: Health (Label)
   PlayerStatDivRatios[3] = new float[]{13.0/25, 0.0, 3.0/26, 1.0/26}; //Player Stat: Armor Class (Label)
   PlayerStatDivRatios[4] = new float[]{27.0/50, 1.0/26, 1.0/13, 1.0/13}; //Player Stat: Armor Class
   PlayerStatDivRatios[5] = new float[]{7.0/10, 0.0, 3.0/26, 1.0/26}; //Player Stat: Equipped Weapon (Label)
@@ -68,6 +68,13 @@ void CalculateDIVs() {
     PlayerStatDivs[baseIndex+1] = appHeight*PlayerStatDivRatios[i][1]; //Y position
     PlayerStatDivs[baseIndex+2] = appWidth*PlayerStatDivRatios[i][2]; //Width
     PlayerStatDivs[baseIndex+3] = appHeight*PlayerStatDivRatios[i][3]; //Height
+  }
+  for (int j = 2; j < NumberOfPlayerStatDIVs; j++) {
+  for (int t = 0; t < 7; t++) {
+    int baseIndex2 = j*4;
+    TextDIVWidth[t] = PlayerStatDivs[baseIndex2+2];
+    TextDIVHeight[t] = PlayerStatDivs[baseIndex2+3];
+    }
   }
 }
 void setup() {
@@ -140,7 +147,7 @@ void draw() {
   stroke(Black);
   strokeWeight(3);
   for (int i = 0; i < NumberOfPlayerStatDIVs; i++) {
-  if (i == 2) {
+  if (i == 1) {
   fill(Health);
   } else {
   fill(Gray);
@@ -148,7 +155,18 @@ void draw() {
     int baseIndex = i*4;
     rect(PlayerStatDivs[baseIndex], PlayerStatDivs[baseIndex+1], PlayerStatDivs[baseIndex+2], PlayerStatDivs[baseIndex+3]);
   }
+  for (int j = 2; j < NumberOfActionLogDIVs; j++) {
+  //for (int t = 0; t < 7; t++) {  
+    int baseIndex2 = j*4;
+    textAlign(CENTER, CENTER);
+    fill(Black);
+    if (j < 7) {
+    textFont(TitleFont, FontSizes[j]);
+    text(DungeonText[j], PlayerStatDivs[baseIndex2], PlayerStatDivs[baseIndex2+1], PlayerStatDivs[baseIndex2+2], PlayerStatDivs[baseIndex2+3]);
+    }
+  //}
+  }
   stroke(Black);
   strokeWeight(1);
-}
+  }
 }

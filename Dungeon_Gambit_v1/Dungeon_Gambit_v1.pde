@@ -2,8 +2,6 @@
 DungeonMap dungeonMap;
 PlayerInventory playerInventory;
 //
-float xSampleTextv1, ySampleTextv1;
-float xSampleTextv2, ySampleTextv2;
 PFont TitleFont;
 color ResetDefaultInk=#FFFFFF;
 color Black=#000000;
@@ -52,6 +50,9 @@ void setup() {
 } //end setup
 void draw() {
   background(50);
+  //
+  TextSetup1();
+  TextSetup2();
   //
   if (!InMainMenu) {
     if (!InInventory) {
