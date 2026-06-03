@@ -12,10 +12,12 @@ color Teleport=#0AC8FF;
 int appWidth, appHeight;
 int size;
 int ShorterSide;
+int PlayerMaximumHealth;
+int PlayerCurrentHealth;
 boolean InMainMenu = false;
 boolean InInventory = false;
 boolean MouseIsOver(float xVariable, float yVariable, float widthVariable, float heightVariable) {
-  return mouseX > xVariable && mouseX < xVariable+widthVariable && mouseY > yVariable && mouseY < yVariable+heightVariable;
+  return mouseX>xVariable && mouseX<xVariable+widthVariable && mouseY>yVariable && mouseY<yVariable+heightVariable;
 }
 //
 void setup() {

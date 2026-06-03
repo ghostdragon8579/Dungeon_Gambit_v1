@@ -44,11 +44,11 @@ void DungeonMapDivs() {
   PlayerStatDivRatios[2] = new float[]{7.0/25, 3.0/52, 4.0/25, 1.0/26}; //Player Stat: Health Bar
   PlayerStatDivRatios[3] = new float[]{13.0/25, 0.0, 3.0/26, 1.0/26}; //Player Stat: Armor Class (Label)
   PlayerStatDivRatios[4] = new float[]{27.0/50, 1.0/26, 1.0/13, 1.0/13}; //Player Stat: Armor Class
+  PlayerStatDivRatios[5] = new float[]{7.0/10, 0.0, 3.0/26, 1.0/26}; //Player Stat: Equipped Weapon (Label)
+  PlayerStatDivRatios[6] = new float[]{7.0/10, 1.0/26, 3.0/26, 1.0/13}; //Player Stat: Equipped Weapon
+  PlayerStatDivRatios[7] = new float[]{23.0/26, 0.0/26, 3.0/26, 1.0/13}; //Player Stat: Bonus to Hit Chance (Label)
+  PlayerStatDivRatios[8] = new float[]{23.0/26, 1.0/26, 3.0/26, 1.0/13}; //Player Stat: Bonus to Hit Chance
   /*
-  PlayerStatDivRatios[5] = new float[]{6.0/25, 0.0/26, 19.0/25, 1.0/13}; //Player Stat: Equipped Weapon (Label)
-  PlayerStatDivRatios[6] = new float[]{6.0/25, 0.0/26, 19.0/25, 1.0/13}; //Player Stat: Equipped Weapon
-  PlayerStatDivRatios[7] = new float[]{6.0/25, 0.0/26, 19.0/25, 1.0/13}; //Player Stat: Bonus to Hit Chance (Label)
-  PlayerStatDivRatios[8] = new float[]{6.0/25, 0.0/26, 19.0/25, 1.0/13}; //Player Stat: Bonus to Hit Chance
   */
   //
   CalculateDIVs();
