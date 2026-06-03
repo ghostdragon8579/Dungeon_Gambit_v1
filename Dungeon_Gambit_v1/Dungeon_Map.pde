@@ -140,6 +140,11 @@ void draw() {
   stroke(Black);
   strokeWeight(3);
   for (int i = 0; i < NumberOfPlayerStatDIVs; i++) {
+  if (i == 2) {
+  fill(Health);
+  } else {
+  fill(Gray);
+  }
     int baseIndex = i*4;
     rect(PlayerStatDivs[baseIndex], PlayerStatDivs[baseIndex+1], PlayerStatDivs[baseIndex+2], PlayerStatDivs[baseIndex+3]);
   }

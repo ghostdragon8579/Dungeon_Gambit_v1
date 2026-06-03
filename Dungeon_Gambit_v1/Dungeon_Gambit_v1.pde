@@ -9,6 +9,7 @@ color ResetDefaultInk=#FFFFFF;
 color Black=#000000;
 color Gray=#868686;
 color Teleport=#0AC8FF;
+color Health=#D10000;
 int appWidth, appHeight;
 int size;
 int ShorterSide;
