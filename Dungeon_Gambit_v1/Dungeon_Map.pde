@@ -156,7 +156,7 @@ void draw() {
     rect(PlayerStatDivs[baseIndex], PlayerStatDivs[baseIndex+1], PlayerStatDivs[baseIndex+2], PlayerStatDivs[baseIndex+3]);
   }
   for (int j = 0; j < 7; j++) {
-  int baseIndex2 = (j+2) * 4;
+  int baseIndex2 = (j+2)*4;
   textAlign(CENTER, CENTER);
   fill(Black);
   textFont(TitleFont, FontSizes[j]);
