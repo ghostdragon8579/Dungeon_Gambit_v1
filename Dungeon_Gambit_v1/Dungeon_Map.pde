@@ -91,7 +91,7 @@ void setup() {
     int RoomWidth = int(random(3, 8));
     int RoomHeight = int(random(3, 8));
     int x = int(random(12, columns-RoomWidth-1));
-    int y = int(random(5, rows-RoomHeight-1));
+    int y = int(random(5, rows-RoomHeight));
   for (int i = x; i < x+RoomWidth; i++) {
   for (int j = y; j < y+RoomHeight; j++) {
     DungeonMap[i][j] = 1; //1 = floor
@@ -122,9 +122,8 @@ void draw() {
   float panelWidth = width*6.0/25;
   float mapWidth = width-panelWidth;
   float cellWidth = mapWidth/(columns-12);
-  float panelHeight = height*2.0/26;
-  float mapHeight = height-panelHeight;
-  float cellHeight = mapHeight/(rows);
+  float panelHeight = height;
+  float cellHeight = panelHeight/(rows);
   //Grid floor
   for (int i = 12; i < columns; i++) {
     for (int j = 0; j < rows; j++) {

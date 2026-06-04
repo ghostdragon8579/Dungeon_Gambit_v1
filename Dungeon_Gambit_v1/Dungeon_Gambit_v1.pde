@@ -36,12 +36,6 @@ void setup() {
       playerInventory.setup();
     }
   }
-  /*
-  xSampleTextv1 = appWidth*2/5; ySampleTextv1 = appHeight*3/8;
-  xSampleTextv2 = appWidth*4/9; ySampleTextv2 = appHeight*5/9;
-  TextDIVWidth[0] = appWidth*1/5; TextDIVHeight[0] = appHeight*1/8;
-  TextDIVWidth[1] = appWidth*1/9; TextDIVHeight[1] = appHeight*1/16;
-  */
   //
   //Fonts
   TitleFont = createFont("Times New Roman Bold", 55);
@@ -61,22 +55,6 @@ void draw() {
       playerInventory.draw();
     }
   }
-  //
-  /*
-  TextSetup1();
-  TextSetup2();
-  //
-  rect(xSampleTextv1, ySampleTextv1, TextDIVWidth[0], TextDIVHeight[0]);
-  rect(xSampleTextv2, ySampleTextv2, TextDIVWidth[1], TextDIVHeight[1]);
-  //
-  textAlign(CENTER, CENTER);
-  fill(Black);
-  textFont(TitleFont, FontSizes[0]);
-  text(SampleText[0], xSampleTextv1, ySampleTextv1, TextDIVWidth[0], TextDIVHeight[0]);
-  textFont(TitleFont, FontSizes[1]);
-  text(SampleText[1], xSampleTextv2, ySampleTextv2, TextDIVWidth[1], TextDIVHeight[1]);
-  fill(ResetDefaultInk);
-  */
   //
 } //end draw
 void keyPressed() {
