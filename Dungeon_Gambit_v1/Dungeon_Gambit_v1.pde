@@ -8,6 +8,7 @@ color Black=#000000;
 color Gray=#868686;
 color Teleport=#0AC8FF;
 color Health=#D10000;
+color Player=#0DB92E;
 int appWidth, appHeight;
 int size;
 int ShorterSide;
@@ -15,6 +16,7 @@ int PlayerMaximumHealth;
 int PlayerCurrentHealth;
 boolean InMainMenu = false;
 boolean InInventory = false;
+boolean PlayerPlaced = false;
 boolean MouseIsOver(float xVariable, float yVariable, float widthVariable, float heightVariable) {
   return mouseX>xVariable && mouseX<xVariable+widthVariable && mouseY>yVariable && mouseY<yVariable+heightVariable;
 }

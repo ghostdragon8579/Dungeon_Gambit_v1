@@ -48,8 +48,6 @@ void DungeonMapDivs() {
   PlayerStatDivRatios[6] = new float[]{7.0/10, 1.0/26, 3.0/26, 1.0/13}; //Player Stat: Equipped Weapon
   PlayerStatDivRatios[7] = new float[]{23.0/26, 0.0/26, 3.0/26, 1.0/26}; //Player Stat: Bonus to Hit Chance (Label)
   PlayerStatDivRatios[8] = new float[]{23.0/26, 1.0/26, 3.0/26, 1.0/13}; //Player Stat: Bonus to Hit Chance
-  /*
-  */
   //
   CalculateDIVs();
   //
@@ -109,9 +107,19 @@ void setup() {
   }
   for (int y = min((int)a.y, (int)b.y); y <= max((int)a.y, (int)b.y); y++) {
     DungeonMap[(int)b.x][y] = 1;
+    }
   }
-}
-//*/
+  //
+  for (int i = 12; i < columns && !PlayerPlaced; i++) {
+    for (int j = 5; j < rows && !PlayerPlaced; j++) {
+      if (DungeonMap[i][j] != 0) {
+        DungeonMap[i][j] = 3;
+        PlayerPlaced = true;
+        break;
+      }
+    }
+  }
+  //
 }
 void draw() {
   //
@@ -133,6 +141,8 @@ void draw() {
         fill(ResetDefaultInk);
       } else if (DungeonMap[i][j] == 2) {
         fill(Teleport);
+      } else if (DungeonMap[i][j] == 3) {
+        fill(Player);
       }
       rect(i*cellWidth, j*cellHeight, cellWidth, cellHeight);
     }
