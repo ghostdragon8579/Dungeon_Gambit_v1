@@ -1,4 +1,8 @@
 class DungeonMap {
+  int px = -1, py = -1;
+  int tx = px, ty = py;
+  int lastMovementKey = -1;
+  //
   int columns = 50, rows = 30; //Formerlly 40 columns and 25 rows
   int[][] DungeonMap = new int[columns][rows];
   //
@@ -173,5 +177,54 @@ void draw() {
   }
   stroke(Black);
   strokeWeight(1);
+}
+void keyPressed() {
+  //
+    for (int i = 12; i < columns; i++) {
+  for (int j = 5; j < rows; j++) {
+  if (key == CODED && keyCode == RIGHT) {
+    MovementCheck();
+  } else if (key == CODED && keyCode == LEFT) {
+    MovementCheck();
+  } else if (key == CODED && keyCode == UP) {
+    MovementCheck();
+  } else if (key == CODED && keyCode == DOWN) {
+    MovementCheck();
   }
+  }
+  }
+  //
+}
+void MovementCheck() {
+  for (int i = 12; i < columns; i++) {
+    for (int j = 5; j < rows; j++) {
+  if (DungeonMap[i][j] == 3) {
+    px = i; py = j;
+    break;
+      }
+    }
+    if (px != -1) break;
+  }
+  /*
+  if (px == -1) return;
+
+  // compute target based on the arrow key last pressed
+  tx = px; ty = py;
+  if (keyCode == RIGHT) tx = px + 1;
+  else if (keyCode == LEFT) tx = px - 1;
+  else if (keyCode == UP) ty = py - 1;
+  else if (keyCode == DOWN) ty = py + 1;
+
+  // bounds check (map columns start at 12)
+  if (tx < 12 || tx >= columns || ty < 0 || ty >= rows) return;
+
+  int targetTile = DungeonMap[tx][ty];
+  if (targetTile == 0) return; // wall blocks movement
+
+  // perform move: restore old tile to floor and place player
+  DungeonMap[px][py] = 1;
+  DungeonMap[tx][ty] = 3;
+  */
+}
+//
 }
